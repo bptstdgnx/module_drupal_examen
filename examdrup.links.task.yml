@@ -1,0 +1,5 @@
+examdrup.examdrup:
+  title: 'examdrup'
+  route_name: 'examdrup.examdrup'
+  base_route: examdrup.examdrup
+  weight: 1

@@ -1,0 +1,8 @@
+examdrup.examdrup:
+  path: '/examdrup/{param}'
+  defaults:
+    _title: 'Affichage de la route /examdrup'
+    _controller: '\Drupal\examdrup\Controller\examdrupController::content'
+    param: 'paramètre par défaut'
+  requirements:
+    _access: 'TRUE'

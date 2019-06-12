@@ -1,0 +1,6 @@
+examdrup.examdrup:
+  title: 'examdrup!'
+  description: 'examdrup page'
+  route_name: examdrup.examdrup
+  menu_name: main
+  weight: 1

@@ -1,0 +1,38 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\user\UserInterface;/**
+ * Implements hook_help().
+ */
+
+function examdrup_help($route_name, RouteMatchInterface $route_match) {
+    switch ($route_name) {
+        // Main help for the examdrup module.
+        case 'help.page.examdrup':
+            return '<p>' . t('Quick description of the examdrup module.') . '</p>';
+    }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function examdrup_cron() {
+    \Drupal::messenger()->addMessage(t('Examdrup cron.'));
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function examdrup_user_login(UserInterface $account) {
+    // Fonction t().
+    // Il existe 3 types de jetons indiquant comment on substitue les variables.
+    // ! : le contenu de la variable est interprété.
+    // @ : le contenu de la variable est échappé.
+    // % : le contenu de la variable est échappé et la balise <em> est ajoutée.
+    \Drupal::messenger()->addMessage(t('Welcome again from examdrup, dear %name!',
+        ['%name' => $account->getAccountName()]
+    ));
+}
